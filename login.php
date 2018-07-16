@@ -45,6 +45,6 @@
     unset($_SESSION["error"]);
   ?>
   <?php
-    require '/Plantilla/footer.php';
+    require 'Plantilla/footer.php';
   ?>
 </html>
