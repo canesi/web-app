@@ -15,19 +15,19 @@
 <head>
     <?php
         $title = "Dashboard";
-        include '/Plantilla/header.php';
+        include 'Plantilla/header.php';
     ?>
 </head>
 <body>
     <nav>
         <?php
-            include '/Plantilla/navbar.php';
+            include 'Plantilla/navbar.php';
         ?>
     </nav>
 
     <footer>
         <?php
-            include '/Plantilla/footer.php';
+            include 'Plantilla/footer.php';
         ?>
     </footer>
 </body>
