@@ -25,7 +25,7 @@
 <head>
     <?php
       $title = "Consultar Cliente";
-      include '/Plantilla/header.php';
+      include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/asignacion.js"></script>
     <style>
@@ -40,9 +40,9 @@
   <nav>
     <?php
       if(strcmp($user_type,"1")==0){
-        include '/Plantilla/navbar.php';
+        include 'Plantilla/navbar.php';
       }else{
-        include '/Plantilla/navbar_consultor.php';
+        include 'Plantilla/navbar_consultor.php';
       }
     ?>
   </nav>
@@ -101,7 +101,7 @@
     </div>
 
  <footer>
-    <?php include '/Plantilla/footer.php'; ?>
+    <?php include 'Plantilla/footer.php'; ?>
  </footer>
 </body>
 </html>
