@@ -8,7 +8,7 @@
       <li class="active"><a href="administrador.php">Dashboard</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Nuevo <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Contacto</a></li>
+          <li><a href="AgregarContacto.php">Contacto</a></li>
           <li><a href="NuevoCliente.php">Cliente</a></li>
           <li><a href="#">Usuario</a></li>
           <li><a href="#">Role</a></li>
@@ -17,7 +17,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultar <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Citas</a></li>
-          <li><a href="#">Clientes</a></li>
+          <li><a href="ConsultarCliente.php">Clientes</a></li>
           <li><a href="#">Usuarios</a></li>
           <li><a href="#">Roles</a></li>
         </ul>

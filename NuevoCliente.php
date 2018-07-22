@@ -18,12 +18,6 @@
       include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/asignacion.js"></script>
-    <style>
-      #select_{
-        max-height: 600px; /*add height as you want*/
-        overflow-y: auto;
-      }
-    </style>
 </head>
 
 <body>
@@ -45,7 +39,7 @@
             </div>
         </div>
 
-        <section id="select_" class="scrollable">
+        <section id="select_">
           <div class="container" id="select_data">
             <form action="controller/NuevoClienteController.php" method="post">
             <!-- datos del cliente -->
@@ -190,7 +184,7 @@
   </div>
 
  <footer>
-    <?php include 'Plantilla/footer.php'; ?>
+    <?php include 'Plantilla/footer_out.php'; ?>
  </footer>
 </body>
 </html>

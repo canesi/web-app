@@ -11,13 +11,13 @@
 <head>
     <?php
       $title = "Welcome";  
-      include '/Plantilla/header.php'; ?>
+      include 'Plantilla/header.php'; ?>
     <title>Welcome</title>
 </head>
 
 <body>
   <nav>
-    <?php include '/Plantilla/navbar.php'; ?>
+    <?php include 'Plantilla/navbar.php'; ?>
   </nav>
 
 <!-- contenido de la pagina -->
@@ -27,7 +27,7 @@
     <?php print_r("Bienvenido: ".$username); ?>
  </div>
 
- <?php include '/Plantilla/footer.php'; ?>
+ <?php include 'Plantilla/footer.php'; ?>
 
 </body>
 </html>

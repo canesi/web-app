@@ -12,14 +12,16 @@
   /*usar metodo de conectar*/
   $conn = $con->conectar();
 
-  //datos correo_contacto
-  $nombre_contacto = $_POST['nombre_contacto'];
-  $apellido_contacto = $_POST['apellido_contacto'];
-  $telefono_contacto = $_POST['telefono_contacto'];
+  //id cliente para asignarle el contacto
+  $id_cliente = $_POST['cliente'];
+  //datos contacto
+  $nombre = $_POST['nombre_contacto'];
+  $apellido = $_POST['apellido_contacto'];
+  $telefono = $_POST['telefono_contacto'];
   $extension = $_POST['extension_contacto'];
-  $email_contacto = $_POST['email_contacto'];
+  $correo = $_POST['correo_contacto'];
   //datos adicionales
-  $obervaciones = $_POST['observaciones'];
+  $observaciones = $_POST['observaciones'];
   $comentarios = $_POST['comentarios'];
 
   $success = '<div class="alert alert-success"><strong>Exito!</strong> el contacto ha sigo guardado .</div>';
@@ -29,37 +31,17 @@
       //si hay algun error al conectar a la base de datos
       printf("Falló la conexión: %s\n", mysqli_connect_error());
       exit();
-  }else if(!empty($nombre) AND !empty($direccion) AND !empty($telefono) AND !empty($email)){
+  }else if(!empty($nombre) AND !empty($apellido) AND !empty($correo)){
       //guardar cliente en la base de datos
-      $query = "INSERT INTO cliente (nombre,direccion,telefono,correo) VALUES ('".$nombre."','".$direccion."','".$telefono."','".$email."')";
-      mysqli_query($conn,$query);
-      flag = "1";
+      $query_contacto = "INSERT INTO contacto (nombre,apellido,telefono,extension,correo,servicio,descripcion_servicio,observacion,comentario,cliente) VALUES ('".$nombre."','".$apellido."','".$telefono."','".$extension."','".$correo."','','','".$observaciones."','".$comentarios."','".$id_cliente."')";
+      mysqli_query($conn,"SET CHARSET utf8");
+      mysqli_query($conn,$query_contacto);
       echo "<script>
-            alert('Cliente guardado con exito!');
+            alert('Contacto guardado con exito!');
             window.location.href='../AgregarContacto.php';
             </script>";
   }
 
   //cerrar la conexion
   mysqli_close($conn);
-
-  if(strcmp($flag,"1")==0){
-    //recuperar el id del cliente guardados
-    query_client = "SELECT cliente_id FROM cliente ORDER BY cliente_id DESC LIMIT 1";
-    $result = mysqli_query($conn,$query_client);
-
-    if(mysqli_num_rows($result)>0){
-        while($row = mysqli_fetch_assoc($result)) {
-            $id_cliente = $row["cliente_id"];
-        }
-    }
-
-    //se guardo correctamente
-    //mostrar mensaje
-    $_SESSION['sucess'] = $success;
-    header("Location: ../NuevoCliente.php");
-  }else{
-
-  }
-
 ?>

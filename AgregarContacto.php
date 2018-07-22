@@ -5,8 +5,18 @@
         header("location: login.php");
 		exit;
     }else{
+        /*incluir script de conexion*/
+        include('connect.php');
+
+        /*crear instancia de la clase conexion*/
+        $con = new Conexion;
+
+        /*usar metodo de conectar*/
+        $conn = $con->conectar();
+
         $username = $_SESSION['username'];
         $user_type = $_SESSION['user_type'];
+
     }
 ?>
 
@@ -18,12 +28,6 @@
       include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/asignacion.js"></script>
-    <style>
-      #select_{
-        max-height: 600px; /*add height as you want*/
-        overflow-y: auto;
-      }
-    </style>
 </head>
 
 <body>
@@ -46,11 +50,31 @@
             </div>
         </div>
 
-        <section id="select_" class="scrollable">
+        <section id="select_">
           <div class="container" id="select_data">
-            <form action="controller/NuevoClienteController.php" method="post">
+            <form action="controller/NuevoContactoController.php" method="post">
             <!-- buscar cliente -->
             <div class="row">
+              <div class="well well-sm"><h4>Cliente para agregar contacto</h4></div>
+              <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <!-- nombre del cliente -->
+                <div class="form-group">
+                  <label for="cliente">Cliente:</label>
+                  <select class="form-control" id="cliente" name="cliente" required>
+                    <option value="">Seleccione el cliente</option>
+                    <?php
+                      $query = "SELECT cliente_id,nombre FROM cliente ORDER BY nombre DESC";
+                      $result = mysqli_query($conn,$query);
+
+                      if(mysqli_num_rows($result)>0){
+                          while($row = mysqli_fetch_assoc($result)) {
+                              echo "<option value=".$row["cliente_id"].">".$row["nombre"]."</option>";
+                          }
+                      }
+                    ?>
+                  </select>
+                </div>
+              </div>
             </div>
             <!-- datos contacto -->
             <div class="row">
@@ -95,7 +119,7 @@
                 <!-- comentarios -->
                 <div class="form-group">
                   <label for="comentarios">Comentarios:</label>
-                  <textarea class="form-control" rows="6" id="comentarios" name="comanterios"></textarea>
+                  <textarea class="form-control" rows="6" id="comentarios" name="comentarios"></textarea>
                 </div>
               </div>
             </div>
@@ -132,7 +156,7 @@
   </div>
 
  <footer>
-    <?php include 'Plantilla/footer.php'; ?>
+    <?php include 'Plantilla/footer_out.php'; ?>
  </footer>
 </body>
 </html>
