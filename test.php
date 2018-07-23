@@ -13,14 +13,14 @@
 
     <?php
         $title = "Test Page"; 
-        include 'Plantilla/header.php'; 
+        include '/Plantilla/header.php'; 
     ?>
 </head>
 
 <body>
     <nav>
         <?php 
-            include 'Plantilla/navbar.php'; 
+            include '/Plantilla/navbar.php'; 
         ?>
     </nav>
     <div class="wrapper">
@@ -85,7 +85,7 @@
     </div>
     
     <footer>
-        <?php include 'Plantilla/footer.php'; ?>
+        <?php include '/Plantilla/footer.php'; ?>
     </footer>
 </body>
 

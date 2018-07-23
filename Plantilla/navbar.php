@@ -17,6 +17,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultar <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Citas</a></li>
+          <li><a href="ConsultarContacto.php">Contactos</a></li>
           <li><a href="ConsultarCliente.php">Clientes</a></li>
           <li><a href="#">Usuarios</a></li>
           <li><a href="#">Roles</a></li>
